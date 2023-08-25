@@ -6,19 +6,17 @@
 <meta name="description" content="ParnasSys Technologie Radar: een tool om technologie keuzes te visualiseren, engineering teams te inspireren en ondersteunen om de beste technologieën voor hun project te kiezen.">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ParnasSys Tech Radar</title>
-<!-- <link rel="shortcut icon" href="favicon.svg"> -->
+
 <link rel="shortcut icon" href="https://www.parnassys.nl/favicon.ico">
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<!-- <script src="radar.js"></script> -->
 
-<!-- <link rel="stylesheet" href="radar.css"> -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
 <style type="text/css">
-  body {
-    font-family: 'Source Sans Pro', arial, helvetica, sans-serif;
+  body, body text {
+    font-family: "Ubuntu", arial, helvetica, sans-serif !important;
     padding-bottom: 50px;
   }
   h3 {
@@ -57,7 +55,7 @@ Er zijn 4 ringen opgesteld:
 
 <ul>
 <li><strong>OK</strong> &mdash; Technologieën met een hoge zekerheid dat ze onze doelen ondersteunen, ook op grotere schaal. Deze kun je veilig gebruiken.</li>
-<li><strong>OVERLEG</strong> &mdash; We hebben hier een of enkele implementaties van draaien. De eerste gebruikservaring zijn binnen. Inzet van deze technologie kent echter meer risico's.</li>
+<li><strong>OVERLEG</strong> &mdash; Overleg voor gebruik. We hebben hier een of enkele implementaties van draaien. De eerste gebruikservaring zijn binnen. Inzet van deze technologie kent mogelijk meer risico's.</li>
 <li><strong>BEKIJKEN</strong> &mdash; Interessante tech of tools. Waardig voor PoCs en uitprobeersels. Privacy, security moet vaak nog worden gecheckt. Communiceer je bevindingen naar HoT of Architect.</li>
 <li><strong>VERMIJDEN</strong> &mdash; Voor nieuwe projecten gebruiken we deze tech niet. </li>
 </ul>
@@ -553,8 +551,8 @@ function radar_visualization(config) {
 <script>
 radar_visualization({
   svg_id: "radar",
-  width: 1450,
-  height: 1000,
+  width: 1400,
+  height: 900,
   colors: {
     background: "#fff",
     grid: '#dddde0',
@@ -590,10 +588,34 @@ radar_visualization({
       },
       /// Quadrant 2
       {
+        "quadrant": 0,
+        "ring": 0,
+        "label": "Queue: NATS",
+        // "link": "",
+        "active": true,
+        "moved": 0   //-1 down, 0 not, 1 up
+      },
+      {
+        "quadrant": 2,
+        "ring": 0,
+        "label": "Taal: Java WildFly",
+        // "link": "https://parnassys.nl",
+        "active": true,
+        "moved": 0   //-1 down, 0 not, 1 up
+      },
+      {
         "quadrant": 2,
         "ring": 1,
-        "label": "Golang",
-        "link": "https://parnassys.nl",
+        "label": "Taal: Golang",
+        // "link": "https://parnassys.nl",
+        "active": true,
+        "moved": 0   //-1 down, 0 not, 1 up
+      },
+      {
+        "quadrant": 2,
+        "ring": 1,
+        "label": "Taal: Java Quarkus",
+        // "link": "https://parnassys.nl",
         "active": true,
         "moved": 0   //-1 down, 0 not, 1 up
       },
@@ -601,9 +623,25 @@ radar_visualization({
       {
         "quadrant": 1,
         "ring": 0,
-        "label": "Angular",
-        "link": "https://parnassys.nl",
+        "label": "Angular Dev42",
+        "link": "https://docs.google.com/document/d/1Y_wwxMsxMj0GkXAgTKY7-6tiYywpL39xJ6qZ4dPCJyg",
         "active": true,
+        "moved": 1   //-1 down, 0 not, 1 up
+      },
+      {
+        "quadrant": 1,
+        "ring": 0,
+        "label": "Angular",
+        "link": "https://angular.io/",
+        "active": true,
+        "moved": 0   //-1 down, 0 not, 1 up
+      },
+      {
+        "quadrant": 1,
+        "ring": 1,
+        "label": "Dart + Flutter",
+        // "link": "https://quilljs.com/",
+        "active": false,
         "moved": 0   //-1 down, 0 not, 1 up
       },
       {
@@ -618,16 +656,48 @@ radar_visualization({
         "quadrant": 1,
         "ring": 3,
         "label": "Vue",
-        "link": "https://parnassys.nl",
+        // "link": "https://parnassys.nl",
         "active": false,
         "moved": -1   //-1 down, 0 not, 1 up
       },
       /// Quadrant 0
       {
         "quadrant": 0,
+        "ring": 1,
+        "label": "Platform: Previder",
+        "link": "https://docs.google.com/document/d/1wAyVVlajUOEEHFT4lsE35zpBT85Y_KrFOvOTV7GOEmU/edit",
+        "active": true,
+        "moved": -1   //-1 down, 0 not, 1 up
+      },
+      {
+        "quadrant": 0,
+        "ring": 0,
+        "label": "Platform: GCP",
+        // "link": "https://parnassys.nl",
+        "active": true,
+        "moved": 0   //-1 down, 0 not, 1 up
+      },
+      {
+        "quadrant": 0,
+        "ring": 3,
+        "label": "Platform: AWS",
+        // "link": "https://parnassys.nl",
+        "active": true,
+        "moved": -1   //-1 down, 0 not, 1 up
+      },
+      {
+        "quadrant": 0,
+        "ring": 3,
+        "label": "Platform: Azure",
+        // "link": "https://parnassys.nl",
+        "active": true,
+        "moved": 0   //-1 down, 0 not, 1 up
+      },
+      {
+        "quadrant": 0,
         "ring": 0,
         "label": "Argo CD",
-        "link": "https://parnassys.nl",
+        // "link": "https://parnassys.nl",
         "active": true,
         "moved": 0   //-1 down, 0 not, 1 up
       },
@@ -635,7 +705,7 @@ radar_visualization({
         "quadrant": 0,
         "ring": 0,
         "label": "K8S",
-        "link": "https://parnassys.nl",
+        // "link": "https://parnassys.nl",
         "active": true,
         "moved": 0
       },
