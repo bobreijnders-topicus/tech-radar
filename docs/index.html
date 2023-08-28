@@ -34,10 +34,24 @@
     vertical-align: top;
     padding-right: 60px;
   }
+  #radar {
+    margin: 0 0 0 25px;
+  }
 </style>
 </head>
 
 <body>
+
+<table>
+  <tr>
+    <td>
+      <input type="text" name="keyword" id="keyword" maxlength="15" placeholder="Nats..."><button onclick="find(document.getElementById('keyword').value);">Uitlichten</button>
+      <p><small>Of gebruik de zoekfunctie [ctrl/cmd] + [f] om snel jouw tech te checken</small></p>
+    </td>
+  </tr>
+</table>
+
+<hr/>
 
 <svg id="radar"></svg>
 
@@ -73,6 +87,9 @@ ParnasSys Technologie Radar: een tool om technologie keuzes te visualiseren, eng
 <p>
 De Tech Radar wordt in de pilot onderhouden door de architect en head of tech. Zie je ontbrekende technologie? Slack hen.
 </p>
+
+<h3>Todo - starter package?</h3>
+<p>Naast de Radar, is het een streven om een 1-click-clone starter package te hebben voor services en (micro) applications. Tbc.</p>
 
 </td></tr>
 </table>
@@ -586,11 +603,11 @@ radar_visualization({
         "active": true,
         "moved": 0   //-1 down, 0 not, 1 up
       },
-      /// Quadrant 2
+      /// Quadrant 2 - Backend
       {
         "quadrant": 2,
         "ring": 2,
-        "label": "Mail: Flowmailer (particle)",
+        "label": "[Mail] Flowmailer (particle)",
         // "link": "",
         "active": true,
         "moved": 1   //-1 down, 0 not, 1 up
@@ -598,7 +615,7 @@ radar_visualization({
       {
         "quadrant": 2,
         "ring": 3,
-        "label": "Mail: Mailchimp",
+        "label": "[Mail] Mailchimp",
         // "link": "",
         "active": true,
         "moved": -1   //-1 down, 0 not, 1 up
@@ -606,7 +623,7 @@ radar_visualization({
       {
         "quadrant": 2,
         "ring": 3,
-        "label": "Mail: Postmark",
+        "label": "[Mail] Postmark",
         // "link": "",
         "active": true,
         "moved": -1   //-1 down, 0 not, 1 up
@@ -614,15 +631,31 @@ radar_visualization({
       {
         "quadrant": 2,
         "ring": 0,
-        "label": "Queue: NATS",
+        "label": "[Queue] NATS",
         // "link": "",
         "active": true,
         "moved": 0   //-1 down, 0 not, 1 up
       },
       {
         "quadrant": 2,
-        "ring": 0,
-        "label": "Taal: Java WildFly",
+        "ring": 1,
+        "label": "[Taal] Java WildFly",
+        // "link": "https://parnassys.nl",
+        "active": true,
+        "moved": -1   //-1 down, 0 not, 1 up
+      },
+      {
+        "quadrant": 2,
+        "ring": 3,
+        "label": "[Taal] PHP Laravel",
+        "link": "https://parnassys.nl",
+        "active": true,
+        "moved": 0   //-1 down, 0 not, 1 up
+      },
+      {
+        "quadrant": 2,
+        "ring": 1,
+        "label": "[Taal] Golang",
         // "link": "https://parnassys.nl",
         "active": true,
         "moved": 0   //-1 down, 0 not, 1 up
@@ -630,15 +663,7 @@ radar_visualization({
       {
         "quadrant": 2,
         "ring": 1,
-        "label": "Taal: Golang",
-        // "link": "https://parnassys.nl",
-        "active": true,
-        "moved": 0   //-1 down, 0 not, 1 up
-      },
-      {
-        "quadrant": 2,
-        "ring": 1,
-        "label": "Taal: Java Quarkus",
+        "label": "[Taal] Java Quarkus",
         // "link": "https://parnassys.nl",
         "active": true,
         "moved": 0   //-1 down, 0 not, 1 up
@@ -647,7 +672,7 @@ radar_visualization({
       {
         "quadrant": 1,
         "ring": 0,
-        "label": "Lottie animatie",
+        "label": "[Anim] Lottie",
         "link": "https://lottiefiles.com/",
         "active": true,
         "moved": 1   //-1 down, 0 not, 1 up
@@ -663,7 +688,7 @@ radar_visualization({
       {
         "quadrant": 1,
         "ring": 3,
-        "label": "Wicket",
+        "label": "Java + Wicket",
         // "link": "https://angular.io/",
         "active": false,
         "moved": -1   //-1 down, 0 not, 1 up
@@ -673,13 +698,13 @@ radar_visualization({
         "ring": 1,
         "label": "Dart + Flutter",
         // "link": "https://quilljs.com/",
-        "active": false,
+        "active": true,
         "moved": 0   //-1 down, 0 not, 1 up
       },
       {
         "quadrant": 1,
         "ring": 1,
-        "label": "Quill",
+        "label": "[Rte] Quill",
         "link": "https://quilljs.com/",
         "active": false,
         "moved": 1   //-1 down, 0 not, 1 up
@@ -692,11 +717,19 @@ radar_visualization({
         "active": false,
         "moved": -1   //-1 down, 0 not, 1 up
       },
+      {
+        "quadrant": 1,
+        "ring": 3,
+        "label": "[Rte] CkEditor 4/5",
+        "link": "https://docs.google.com/document/d/1pEF_cDA-IVxf1RjZksWdtnJYpzCvTWpx_5zP-YXMF1o",
+        "active": true,
+        "moved": -1   //-1 down, 0 not, 1 up
+      },
       /// Quadrant 0
       {
         "quadrant": 0,
         "ring": 1,
-        "label": "Platform: Previder",
+        "label": "[Platform] Previder",
         "link": "https://docs.google.com/document/d/1wAyVVlajUOEEHFT4lsE35zpBT85Y_KrFOvOTV7GOEmU/edit",
         "active": true,
         "moved": -1   //-1 down, 0 not, 1 up
@@ -704,7 +737,7 @@ radar_visualization({
       {
         "quadrant": 0,
         "ring": 0,
-        "label": "Platform: GCP",
+        "label": "[Platform] GCP",
         // "link": "https://parnassys.nl",
         "active": true,
         "moved": 0   //-1 down, 0 not, 1 up
@@ -712,7 +745,7 @@ radar_visualization({
       {
         "quadrant": 0,
         "ring": 3,
-        "label": "Platform: AWS",
+        "label": "[Platform] AWS",
         // "link": "https://parnassys.nl",
         "active": true,
         "moved": -1   //-1 down, 0 not, 1 up
@@ -720,7 +753,7 @@ radar_visualization({
       {
         "quadrant": 0,
         "ring": 3,
-        "label": "Platform: Azure",
+        "label": "[Platform] Azure",
         // "link": "https://parnassys.nl",
         "active": true,
         "moved": 0   //-1 down, 0 not, 1 up
@@ -728,7 +761,31 @@ radar_visualization({
       {
         "quadrant": 0,
         "ring": 0,
-        "label": "Argo CD",
+        "label": "[CD] ArgoCD",
+        // "link": "https://parnassys.nl",
+        "active": true,
+        "moved": 0   //-1 down, 0 not, 1 up
+      },
+      {
+        "quadrant": 0,
+        "ring": 3,
+        "label": "[CI/CD] GitLab",
+        // "link": "https://parnassys.nl",
+        "active": true,
+        "moved": 0   //-1 down, 0 not, 1 up
+      },
+      {
+        "quadrant": 0,
+        "ring": 0,
+        "label": "[CI/CD] GitHub (+ Actions)",
+        // "link": "https://parnassys.nl",
+        "active": true,
+        "moved": 0   //-1 down, 0 not, 1 up
+      },
+      {
+        "quadrant": 0,
+        "ring": 1,
+        "label": "[CI/CD] Jenkins",
         // "link": "https://parnassys.nl",
         "active": true,
         "moved": 0   //-1 down, 0 not, 1 up
